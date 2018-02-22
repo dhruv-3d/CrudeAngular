@@ -1,0 +1,124 @@
+<div class="container color-dark">
+    <h3>Student Info</h3>
+</div>
+<div class="container color-light">
+  <div class="col">
+    <p class="sm">Using this form enter student details.</p>
+    <form>
+      <div class="form-ctrl">
+        <label>First Name: </label>
+        <input class="txt" type="text" name="fname" [(ngModel)]="fname">
+      </div>
+
+      <div class="form-ctrl">
+        <label>Last Name: </label>
+        <input class="txt" type="text" name="lname" [(ngModel)]="lname">
+      </div>
+
+      <div class="form-ctrl">
+        <label>Date of Birth: </label>
+        <input class="txt" type="date" name="dob" [(ngModel)]="dob">
+      </div>
+
+      <div class="form-ctrl">
+        <label>Email: </label>
+        <input class="txt" type="email" name="email" [(ngModel)]="email">
+      </div>
+
+      <div class="form-ctrl">
+        <label>Phone: </label>
+        <input class="txt" type="number" name="phone" [(ngModel)]="phone">
+      </div>
+
+      <div class="form-ctrl">
+        <label>Faculty: </label>
+        <select name="option" [(ngModel)]="fac">
+          <option *ngFor="let x of faculty" [ngValue]="x">{{ x }}</option>
+        </select>
+      </div>
+
+      <input type="submit" class="btn" (click)="addStdInfo()">
+    </form>
+  </div>
+</div>
+
+<br >
+<br >
+
+<div class="container color-dark">
+    <h3>Student Record</h3>
+</div>
+<div class="container color-light">
+  <div class="col">
+    <table>
+      <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>DOB</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Faculty</th>
+        <th></th>
+        <th></th>
+      </tr>
+      <tr *ngFor="let i of stud_info; let id = index">
+        <td>{{ i.firstname }}</td>
+        <td>{{ i.lastname }}</td>
+        <td>{{ i.dob }}</td>
+        <td>{{ i.email }}</td>
+        <td>{{ i.phone }}</td>
+        <td>{{ i.faculty }}</td>
+        <td><button (click)="deleteInfo(id)" >x</button></td>
+        <td><button (click)="editInfo(id)" >Edit</button></td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+<br >
+<br >
+
+<div *ngIf="id!=null">
+  <div class="container color-dark">
+      <h3>Update Here</h3>
+  </div>
+  <div class="container color-light">
+    <div class="col">
+      <form>
+          <div class="form-ctrl">
+            <label>First Name: </label>
+            <input class="txt" type="text" name="fname" [(ngModel)]="edit_info.fname">
+          </div>
+    
+          <div class="form-ctrl">
+            <label>Last Name: </label>
+            <input class="txt" type="text" name="lname" [(ngModel)]="lname">
+          </div>
+    
+          <div class="form-ctrl">
+            <label>Date of Birth: </label>
+            <input class="txt" type="date" name="dob" [(ngModel)]="dob">
+          </div>
+    
+          <div class="form-ctrl">
+            <label>Email: </label>
+            <input class="txt" type="email" name="email" [(ngModel)]="email">
+          </div>
+    
+          <div class="form-ctrl">
+            <label>Phone: </label>
+            <input class="txt" type="number" name="phone" [(ngModel)]="phone">
+          </div>
+    
+          <div class="form-ctrl">
+            <label>Faculty: </label>
+            <select name="option" [(ngModel)]="fac">
+              <option *ngFor="let x of faculty" [ngValue]="x">{{ x }}</option>
+            </select>
+          </div>
+    
+          <input type="submit" class="btn" (click)="updateInfo()">
+        </form>
+    </div>
+  </div>
+</div>
