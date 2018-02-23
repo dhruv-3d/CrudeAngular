@@ -32,12 +32,5 @@ export class PutdataService {
     this.infos.next(info);
   }
 
-  getEditInfo(id) {
-    
-    for(var i=0;i <=id;i++) {
-      
-    }
-  }
-
-  }
+}
 
